@@ -1,0 +1,22 @@
+title: Field Notes — Alisina Karimi
+description: Engineering notes on production systems, distributed software, and making technical claims legible.
+url: https://alisina.is-a.dev
+baseurl: ""
+lang: en
+timezone: Europe/Rome
+markdown: kramdown
+permalink: /notes/:title/
+excerpt_separator: "<!--more-->"
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: article
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
