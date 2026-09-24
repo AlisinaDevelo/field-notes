@@ -2,7 +2,7 @@
 layout: default
 title: Past the happy path.
 description: >-
-  Notes from building software that has to hold up outside the demo: production systems, distributed storage, and tools for seeing what changed.
+  StreamHive's content-addressed replication and lifecycle repair; CARTOGRAPH's compiler-backed TypeScript graphs, source evidence, and semantic revision diffs.
 permalink: /
 ---
 {% assign notes = site.posts | sort: "sequence" %}
@@ -59,8 +59,8 @@ permalink: /
     <p class="about-label eyebrow">The thread / About</p>
     <div class="about-copy">
       <h2 id="about-title">When a system changes, can someone follow the evidence?</h2>
-      <p>I work across production software and independent systems projects. The subjects vary; the question underneath them tends to be the same: what happened, what changed, and what can we actually prove?</p>
-      <ul class="about-topics" aria-label="Topics"><li>Production systems</li><li>Distributed software</li><li>Evidence &amp; measurement</li></ul>
+      <p>I work on StreamHive, a Go library and CLI for content-addressed storage, bounded anti-entropy, and versioned lifecycle records. I also work on CARTOGRAPH's TypeScript analyzer, which ties architecture relationships to source evidence and exposes unresolved code in revision diffs.</p>
+      <ul class="about-topics" aria-label="Topics"><li>Go replication &amp; repair</li><li>TypeScript graph analysis</li><li>Evidence-backed diffs</li></ul>
     </div>
   </section>
 </main>
