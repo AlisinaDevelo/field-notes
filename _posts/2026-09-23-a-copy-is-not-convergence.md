@@ -10,6 +10,8 @@ project_url: https://github.com/AlisinaDevelo/StreamHive
 project_description: Go library and CLI for experimenting with distributed, content-addressed storage.
 source_label: Go / TCP
 reading_time: 9
+discussion_number: 1
+last_modified_at: 2026-09-24 12:12:51 +0200
 description: Inside StreamHive's SHV1 blob exchange, bytewise live cursor, bounded anti-entropy scheduler, and separate logical lifecycle journal.
 ---
 

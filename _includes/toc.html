@@ -1,0 +1,16 @@
+{% assign sections = content | split: '<h2 id="' %}
+{% if sections.size > 1 %}
+<details class="toc" open>
+  <summary class="meta">On this page <span class="toc-toggle" aria-hidden="true">+</span></summary>
+  <nav aria-label="Table of contents">
+    <ol>
+      {% for section in sections offset:1 %}
+        {% assign heading_id = section | split: '"' | first %}
+        {% assign heading_content = section | split: '</h2>' | first | split: '">' | last %}
+        <li><a href="#{{ heading_id | escape }}">{{ heading_content | strip_html }}</a></li>
+      {% endfor %}
+      {% if page.discussion_number %}<li><a href="#discussion">Discussion</a></li>{% endif %}
+    </ol>
+  </nav>
+</details>
+{% endif %}

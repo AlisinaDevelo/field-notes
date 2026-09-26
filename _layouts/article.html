@@ -1,56 +1,47 @@
 ---
 layout: default
 ---
-{% assign notes = site.posts | sort: "sequence" %}
-{% assign current_index = nil %}
+{% assign notes = site.posts | sort: "date" | reverse %}
+{% assign next_note = nil %}
 {% for note in notes %}
-  {% if note.url == page.url %}{% assign current_index = forloop.index0 %}{% endif %}
+  {% if note.url != page.url %}{% assign next_note = note %}{% break %}{% endif %}
 {% endfor %}
-{% if current_index > 0 %}
-  {% assign previous_index = current_index | minus: 1 %}
-  {% assign previous_note = notes[previous_index] %}
-{% endif %}
-{% assign next_index = current_index | plus: 1 %}
-{% if next_index < notes.size %}{% assign next_note = notes[next_index] %}{% endif %}
 <main id="main" class="wrap">
   <div class="article-topline">
-    <a class="back-link" href="../../#writing"><span aria-hidden="true">←</span> All notes</a>
-    <span class="meta">Field note {{ page.sequence | prepend: "0" }} / {{ page.topic }}</span>
+    <a class="back-link" href="{{ '/' | relative_url }}#writing"><span aria-hidden="true">←</span> All notes</a>
+    <span class="meta">{% if page.sequence < 10 %}0{% endif %}{{ page.sequence }} / {{ page.topic }}</span>
   </div>
-  <header class="article-head">
-    <div>
-      <p class="eyebrow">{{ page.series }} / {{ page.project_name }}</p>
-      <h1>{{ page.title | escape }}</h1>
+  <article aria-labelledby="article-title">
+    <header class="article-head">
+      <h1 id="article-title">{{ page.title | escape }}</h1>
       <p class="article-deck">{{ page.description | escape }}</p>
+      <div class="article-byline">
+        <a class="byline-author" rel="author" href="{{ '/' | relative_url }}#about"><span class="author-mark" aria-hidden="true"></span>Alisina Karimi</a>
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d %b %Y" }}</time>
+        <span class="byline-dot" aria-hidden="true">·</span>
+        <span>{{ page.reading_time }} min read</span>
+        {% if page.discussion_number %}<a class="discussion-jump" href="#discussion">Discussion <span aria-hidden="true">↓</span></a>{% endif %}
+      </div>
+    </header>
+    <div class="article-grid">
+      <div class="article-main">
+        <div class="article-body" id="article-content">
+          {{ content }}
+        </div>
+        {% if page.discussion_number %}{% include comments.html %}{% endif %}
+        <nav class="article-nav" aria-label="More writing">
+          <a href="{{ '/' | relative_url }}#writing"><span class="meta">Back to writing</span><span>All field notes <span aria-hidden="true">←</span></span></a>
+          {% if next_note %}<a href="{{ next_note.url | relative_url }}"><span class="meta">Read next</span><span>{{ next_note.title | escape }} <span aria-hidden="true">→</span></span></a>{% endif %}
+        </nav>
+      </div>
+      <aside class="article-aside" aria-label="Article navigation and source">
+        {% include toc.html %}
+        <div class="source-note">
+          <p class="meta">Read alongside</p>
+          <a href="{{ page.project_url }}">{{ page.project_name }} on GitHub <span aria-hidden="true">↗</span></a>
+          <p>{{ page.project_description }}</p>
+        </div>
+      </aside>
     </div>
-    <div class="article-facts" aria-label="Article details">
-      <div class="article-fact"><span class="meta">Published</span><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d %b %Y" }}</time></div>
-      <div class="article-fact"><span class="meta">Reading time</span><strong>{{ page.reading_time }} MINUTES</strong></div>
-      <div class="article-fact"><span class="meta">Source</span><strong>{{ page.source_label }}</strong></div>
-    </div>
-  </header>
-  <div class="article-grid">
-    <article class="article-body">
-      {{ content }}
-      <nav class="article-nav" aria-label="More writing">
-        {% if previous_note %}
-          {% assign previous_slug = previous_note.url | split: "/" | compact | last %}
-          <a href="../{{ previous_slug }}/"><span class="meta">← Previous note</span><strong>{{ previous_note.title | escape }}</strong></a>
-        {% else %}
-          <a href="../../#writing"><span class="meta">← The journal</span><strong>Back to all notes</strong></a>
-        {% endif %}
-        {% if next_note %}
-          {% assign next_slug = next_note.url | split: "/" | compact | last %}
-          <a class="next" href="../{{ next_slug }}/"><span class="meta">Next note →</span><strong>{{ next_note.title | escape }}</strong></a>
-        {% else %}
-          <a class="next" href="../../#writing"><span class="meta">All notes →</span><strong>Back to the journal</strong></a>
-        {% endif %}
-      </nav>
-    </article>
-    <aside class="article-aside">
-      <p class="eyebrow">Read alongside</p>
-      <p><a href="{{ page.project_url }}">{{ page.project_name }} on GitHub ↗</a></p>
-      <p>{{ page.project_description }}</p>
-    </aside>
-  </div>
+  </article>
 </main>

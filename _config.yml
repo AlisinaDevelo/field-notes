@@ -3,6 +3,12 @@ description: Engineering notes on StreamHive's content-addressed replication and
 url: https://alisina.is-a.dev
 baseurl: ""
 lang: en
+asset_version: "20260926-1"
+comments:
+  repo: AlisinaDevelo/field-notes
+  repo_id: R_kgDOUnf68g
+  # Enable once the repository-scoped giscus installation is confirmed on GitHub.
+  embedded: false
 timezone: Europe/Rome
 markdown: kramdown
 permalink: /notes/:title/
@@ -20,3 +26,4 @@ exclude:
   - README.md
   - Gemfile
   - Gemfile.lock
+  - vendor

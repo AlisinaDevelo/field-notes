@@ -1,0 +1,27 @@
+@import url("https://giscus.app/themes/light.css");
+
+main {
+  --color-fg-default: #20241f;
+  --color-fg-muted: #626b63;
+  --color-fg-subtle: #626b63;
+  --color-canvas-default: #f2f0e8;
+  --color-canvas-overlay: #f8f7f1;
+  --color-canvas-inset: #f8f7f1;
+  --color-canvas-subtle: #f8f7f1;
+  --color-border-default: #cdd0c7;
+  --color-border-muted: #cdd0c7;
+  --color-neutral-muted: #e6e7df;
+  --color-accent-fg: #31488f;
+  --color-accent-emphasis: #31488f;
+  --color-accent-muted: #d8def1;
+  --color-accent-subtle: #e9edf7;
+  --color-btn-primary-bg: #31488f;
+  --color-btn-primary-border: #31488f;
+  --color-btn-primary-hover-bg: #253a79;
+  --color-btn-primary-hover-border: #253a79;
+  --color-btn-primary-selected-bg: #253a79;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.gsc-main { background: transparent; }
+.gsc-comment-box, .gsc-comment { border-radius: 4px; }

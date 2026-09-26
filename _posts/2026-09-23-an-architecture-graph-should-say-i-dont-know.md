@@ -10,6 +10,8 @@ project_url: https://github.com/AlisinaDevelo/CARTOGRAPH
 project_description: Compiler-backed TypeScript graphs, semantic revision diffs, and evidence-linked reports.
 source_label: TypeScript
 reading_time: 8
+discussion_number: 2
+last_modified_at: 2026-09-24 12:12:51 +0200
 description: How CARTOGRAPH resolves TypeScript relationships, records source evidence, compares semantic identities, and reports routes it cannot resolve.
 ---
 
