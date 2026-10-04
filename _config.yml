@@ -1,9 +1,9 @@
 title: Field Notes — Alisina Karimi
-description: Engineering notes on StreamHive's content-addressed replication and CARTOGRAPH's evidence-backed TypeScript architecture diffs.
+description: Engineering notes on realtime delivery, retrieval, machine learning, and the contracts behind reliable systems.
 url: https://alisina.is-a.dev
 baseurl: ""
 lang: en
-asset_version: "20260926-1"
+asset_version: "20261004-1"
 comments:
   repo: AlisinaDevelo/field-notes
   repo_id: R_kgDOUnf68g

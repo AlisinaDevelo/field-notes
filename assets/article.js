@@ -51,7 +51,7 @@
   copyStatus.className = "sr-only";
   copyStatus.setAttribute("role", "status");
   document.body.append(copyStatus);
-  const languages = { sh: "Shell", bash: "Shell", ts: "TypeScript", js: "JavaScript", text: "Text", go: "Go" };
+  const languages = { sh: "Shell", bash: "Shell", ts: "TypeScript", js: "JavaScript", text: "Text", go: "Go", python: "Python", rust: "Rust", sql: "SQL" };
 
   article.querySelectorAll("pre").forEach(pre => {
     const code = pre.querySelector("code");
@@ -109,6 +109,21 @@
     hint.hidden = true;
     svg.before(viewport);
     viewport.append(svg);
+    viewport.after(hint);
+    const updateOverflow = () => {
+      const overflows = viewport.scrollWidth > viewport.clientWidth + 1;
+      viewport.tabIndex = overflows ? 0 : -1;
+      hint.hidden = !overflows;
+    };
+    if ("ResizeObserver" in window) new ResizeObserver(updateOverflow).observe(viewport);
+    updateOverflow();
+  });
+
+  article.querySelectorAll(".table-viewport").forEach(viewport => {
+    const hint = document.createElement("p");
+    hint.className = "table-hint";
+    hint.textContent = "Scroll horizontally to read the full table →";
+    hint.hidden = true;
     viewport.after(hint);
     const updateOverflow = () => {
       const overflows = viewport.scrollWidth > viewport.clientWidth + 1;

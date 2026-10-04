@@ -13,7 +13,7 @@ bundle exec jekyll serve
 
 The Gemfile pins the renderer, Markdown parser, syntax highlighter, feed, and sitemap plugins to the versions used by GitHub Pages. Production builds from the main branch; the custom domain and HTTPS are configured on GitHub Pages.
 
-The homepage is ordered newest first. Article pages include a contents list generated from second-level headings, section links, copyable code blocks, diagrams that scroll at their authored size, and GitHub discussions. Reading and contents links work without JavaScript. Third-party comments load only when the reader chooses to load them or returns from signing in to giscus.
+The homepage is ordered newest first. Read next follows the next older article and returns to the newest after the oldest. Article pages include a contents list generated from second-level headings, section links, copyable code blocks, diagrams and tables that scroll on narrow screens, and GitHub discussions. Reading and contents links work without JavaScript. Third-party comments load only when the reader chooses to load them or returns from signing in to giscus.
 
 ## Add a note
 
@@ -22,8 +22,8 @@ Create `_posts/YYYY-MM-DD-your-slug.md` with front matter like this:
 ```yaml
 ---
 title: A useful title
-date: 2026-09-23 15:00:00 +0200
-sequence: 3
+date: 2026-10-04 15:00:00 +0200
+sequence: 6
 code: SYS
 topic: Distributed systems
 series: Systems
@@ -32,7 +32,7 @@ project_url: https://github.com/AlisinaDevelo/project
 project_description: One short, factual sentence about the project.
 source_label: Go / TCP
 reading_time: 5
-discussion_number: 3
+discussion_number: 6
 description: A one-sentence summary for the index and link previews.
 ---
 ```

@@ -98,6 +98,14 @@ button, summary { cursor: pointer; }
 .article-body blockquote { margin: 32px 0; padding-left: 24px; border-left: 2px solid var(--blue); font-style: italic; }
 .article-body ul, .article-body ol { padding-left: 25px; }
 .article-body li { margin-bottom: 8px; }
+.table-viewport { max-width: 100%; overflow-x: auto; overscroll-behavior-x: contain; margin-block: 28px; border: 1px solid var(--line); border-radius: 4px; }
+.table-viewport:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; }
+.article-body table { width: 100%; min-width: 520px; border-collapse: collapse; background: var(--paper-raised); font: 13px/1.65 var(--sans); }
+.article-body th, .article-body td { padding: 13px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.article-body th { color: var(--ink); font-weight: 600; }
+.article-body tbody tr:last-child td { border-bottom: 0; }
+.article-body td:not(:first-child) { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.table-hint { margin: -16px 0 28px !important; color: var(--muted); font: 12px/1.6 var(--sans); }
 .article-body .callout { padding: 20px 24px; margin-block: 32px; border: 1px solid var(--line); background: var(--paper-raised); font: 16px/1.7 var(--sans); }
 .article-body figure { margin: 32px 0; padding: 24px; background: var(--paper-raised); border: 1px solid var(--line); border-radius: 4px; }
 .article-body figure svg { display: block; width: 100%; height: auto; margin: auto; }

@@ -3,9 +3,12 @@ layout: default
 ---
 {% assign notes = site.posts | sort: "date" | reverse %}
 {% assign next_note = nil %}
+{% assign current_seen = false %}
 {% for note in notes %}
-  {% if note.url != page.url %}{% assign next_note = note %}{% break %}{% endif %}
+  {% if current_seen %}{% assign next_note = note %}{% break %}{% endif %}
+  {% if note.url == page.url %}{% assign current_seen = true %}{% endif %}
 {% endfor %}
+{% if next_note == nil and notes.size > 1 %}{% assign next_note = notes | first %}{% endif %}
 <main id="main" class="wrap">
   <div class="article-topline">
     <a class="back-link" href="{{ '/' | relative_url }}#writing"><span aria-hidden="true">←</span> All notes</a>
