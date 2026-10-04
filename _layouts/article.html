@@ -23,13 +23,20 @@ layout: default
         <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d %b %Y" }}</time>
         <span class="byline-dot" aria-hidden="true">·</span>
         <span>{{ page.reading_time }} min read</span>
-        {% if page.discussion_number %}<a class="discussion-jump" href="#discussion">Discussion <span aria-hidden="true">↓</span></a>{% endif %}
+        <div class="article-utilities">
+          {% if page.discussion_number %}<a class="discussion-jump" href="#discussion">Discussion <span aria-hidden="true">↓</span></a>{% endif %}
+          {% include share.html position="top" %}
+        </div>
       </div>
     </header>
     <div class="article-grid">
       <div class="article-main">
         <div class="article-body" id="article-content">
           {{ content }}
+        </div>
+        <div class="article-share" id="share">
+          <p>Share this note</p>
+          {% include share.html position="end" %}
         </div>
         {% if page.discussion_number %}{% include comments.html %}{% endif %}
         <nav class="article-nav" aria-label="More writing">

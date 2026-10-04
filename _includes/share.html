@@ -1,0 +1,26 @@
+{% assign share_url = page.url | absolute_url %}
+{% assign share_url_encoded = share_url | url_encode | replace: '+', '%20' %}
+{% assign share_title_encoded = page.title | url_encode | replace: '+', '%20' %}
+<details class="share-menu{% if include.position == 'end' %} share-menu--above{% endif %}" data-share-title="{{ page.title | escape }}" data-share-url="{{ share_url | escape }}">
+  <summary class="share-trigger" aria-label="Share this note">
+    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 12V2m-3 3 3-3 3 3M5 8H3.5v9h13V8H15"/></svg>
+    <span>Share</span>
+  </summary>
+  <div class="share-panel" role="group" aria-labelledby="share-title-{{ include.position }}">
+    <p class="share-panel-title" id="share-title-{{ include.position }}">Share this note</p>
+    <div class="share-destinations">
+      <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ share_url_encoded }}" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn (opens a new tab)">LinkedIn <span aria-hidden="true">↗</span></a>
+      <a href="https://twitter.com/intent/tweet?text={{ share_title_encoded }}&amp;url={{ share_url_encoded }}" target="_blank" rel="noopener noreferrer" aria-label="Share on X (opens a new tab)">X <span aria-hidden="true">↗</span></a>
+      <a href="https://bsky.app/intent/compose?text={{ share_title_encoded }}%0A{{ share_url_encoded }}" target="_blank" rel="noopener noreferrer" aria-label="Share on Bluesky (opens a new tab)">Bluesky <span aria-hidden="true">↗</span></a>
+      <a href="https://www.reddit.com/submit?url={{ share_url_encoded }}&amp;title={{ share_title_encoded }}" target="_blank" rel="noopener noreferrer" aria-label="Share on Reddit (opens a new tab)">Reddit <span aria-hidden="true">↗</span></a>
+      <a href="mailto:?subject={{ share_title_encoded }}&amp;body={{ share_title_encoded }}%0D%0A%0D%0A{{ share_url_encoded }}" aria-label="Share by email">Email <span aria-hidden="true">↗</span></a>
+      <button type="button" data-native-share hidden>More options <span aria-hidden="true">↗</span></button>
+    </div>
+    <div class="share-link-row">
+      <label class="sr-only" for="share-url-{{ include.position }}">Link to this note</label>
+      <input id="share-url-{{ include.position }}" type="text" value="{{ share_url | escape }}" readonly spellcheck="false" autocomplete="off" inputmode="none">
+      <button type="button" class="share-copy" data-copy-link hidden>Copy link</button>
+    </div>
+    <p class="share-status" role="status" aria-live="polite"></p>
+  </div>
+</details>

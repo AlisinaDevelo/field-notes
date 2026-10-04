@@ -39,6 +39,12 @@ description: A one-sentence summary for the index and link previews.
 
 Write the article in Markdown below the front matter. Use a unique sequence number, keep claims tied to inspectable work, and put project limitations in the article when they matter. Use second-level headings for the contents list and fenced code blocks with a language. Set last_modified_at when the article content changes. The journal index, article navigation, Atom feed, and sitemap are generated from the post files.
 
+## Sharing
+
+Every article has a Share menu beside its byline and at the end of the text. LinkedIn, X, Bluesky, Reddit, and email open their compose flows with the canonical article URL. The title is included where the destination supports it. The links and selectable URL work without JavaScript; the optional script adds copy feedback, keyboard dismissal, viewport-aware placement, and the device's native share sheet when supported. Sharing never uses the reader's query parameters or section fragment.
+
+The component is in `_includes/share.html`, with behavior in `assets/share.js`. It loads no third-party sharing scripts. Adding an article automatically supplies both menus with its title and permanent URL.
+
 ## Comments
 
 Comments are backed by [GitHub Discussions](https://github.com/AlisinaDevelo/field-notes/discussions), embedded through [giscus](https://giscus.app/). Readers can also use the permanent GitHub link on each article. No comments or credentials are stored in this repository's static site.
