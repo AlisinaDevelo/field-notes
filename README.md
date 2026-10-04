@@ -45,6 +45,12 @@ Every article has a Share menu beside its byline and at the end of the text. Lin
 
 The component is in `_includes/share.html`, with behavior in `assets/share.js`. It loads no third-party sharing scripts. Adding an article automatically supplies both menus with its title and permanent URL.
 
+### Instagram Stories
+
+The Instagram Stories action opens a preview with Paper and Ink styles. It creates a 1080 × 1920 PNG locally, using the article's existing `title`, `description` (or excerpt), `topic`, `sequence`, and `reading_time`. The shared article layout includes `_includes/story.html` once; `assets/story.js` handles rendering and export. Every new post gets the same feature without a separate image, configuration entry, or service. Title text is measured and wrapped to fit; unusually long text is reduced and then shortened with an ellipsis to stay inside the image's safe area.
+
+Readers can save the image and add it to their Instagram story, then copy the canonical article URL into a Link sticker. File sharing is offered only when the browser reports support for the generated PNG. The device controls which apps appear; choosing Instagram or publishing a story is a reader action. The file is prepared before the Share image click to preserve the browser's user-activation requirement. Downloads remain available without native file sharing; existing social links remain available without JavaScript.
+
 ## Comments
 
 Comments are backed by [GitHub Discussions](https://github.com/AlisinaDevelo/field-notes/discussions), embedded through [giscus](https://giscus.app/). Readers can also use the permanent GitHub link on each article. No comments or credentials are stored in this repository's static site.

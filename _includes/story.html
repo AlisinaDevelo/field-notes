@@ -1,0 +1,39 @@
+{% assign story_description = page.description | default: page.excerpt | strip_html | normalize_whitespace %}
+<dialog class="story-dialog" id="story-dialog" aria-labelledby="story-heading" aria-describedby="story-intro"
+  data-title="{{ page.title | escape }}"
+  data-description="{{ story_description | escape }}"
+  data-topic="{{ page.topic | default: 'Engineering' | escape }}"
+  data-sequence="{{ page.sequence | escape }}"
+  data-reading-time="{{ page.reading_time | escape }}"
+  data-author="{{ site.author.name | default: 'Alisina Karimi' | escape }}"
+  data-url="{{ page.url | absolute_url | escape }}">
+  <header class="story-dialog-heading">
+    <h2 id="story-heading">Share to your story</h2>
+    <button type="button" class="story-close" aria-label="Close story preview" autofocus><span aria-hidden="true">×</span></button>
+  </header>
+  <div class="story-layout">
+    <figure class="story-preview" aria-busy="true">
+      <div class="story-image-wrap"><img width="1080" height="1920" alt="Story card for {{ page.title | escape }}" hidden></div>
+      <figcaption>1080 × 1920 <span aria-hidden="true">·</span> 9:16 <span aria-hidden="true">·</span> PNG</figcaption>
+    </figure>
+    <div class="story-controls">
+      <p id="story-intro">A little Field Notes, made for your Instagram story.</p>
+      <fieldset class="story-themes">
+        <legend>Choose a style</legend>
+        <label><input type="radio" name="story-theme" value="paper" checked><span><i class="story-swatch story-swatch--paper" aria-hidden="true"></i>Paper</span></label>
+        <label><input type="radio" name="story-theme" value="ink"><span><i class="story-swatch story-swatch--ink" aria-hidden="true"></i>Ink</span></label>
+      </fieldset>
+      <div class="story-actions">
+        <a class="button story-download" data-story-download hidden>Save story image <span aria-hidden="true">↓</span></a>
+        <button type="button" class="story-native" data-story-native hidden>Share image… <span aria-hidden="true">↗</span></button>
+      </div>
+      <p class="story-instructions">Add the saved image to your Instagram story. Use a <strong>Link sticker</strong> to paste the article link below.</p>
+      <label class="story-link-label" for="story-url">Article link</label>
+      <div class="share-link-row">
+        <input id="story-url" type="text" value="{{ page.url | absolute_url | escape }}" readonly spellcheck="false" autocomplete="off" inputmode="none">
+        <button type="button" class="share-copy" data-story-copy>Copy link</button>
+      </div>
+      <p class="story-status" role="status" aria-live="polite">Preparing your story image…</p>
+    </div>
+  </div>
+</dialog>

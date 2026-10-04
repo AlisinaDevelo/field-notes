@@ -8,6 +8,11 @@
   </summary>
   <div class="share-panel" role="group" aria-labelledby="share-title-{{ include.position }}">
     <p class="share-panel-title" id="share-title-{{ include.position }}">Share this note</p>
+    <button type="button" class="share-story" data-story-open aria-haspopup="dialog" aria-controls="story-dialog" hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="5.5" y="2.5" width="13" height="19" rx="2"/><path d="m9 12 2 2 4-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Instagram Stories<small>Create a story card</small></span>
+      <span aria-hidden="true">→</span>
+    </button>
     <div class="share-destinations">
       <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ share_url_encoded }}" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn (opens a new tab)">LinkedIn <span aria-hidden="true">↗</span></a>
       <a href="https://twitter.com/intent/tweet?text={{ share_title_encoded }}&amp;url={{ share_url_encoded }}" target="_blank" rel="noopener noreferrer" aria-label="Share on X (opens a new tab)">X <span aria-hidden="true">↗</span></a>
